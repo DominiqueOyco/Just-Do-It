@@ -249,9 +249,9 @@ class App extends Component {
 						open={this.state.dialogOpen}
 					/>
 					<AppBar
-						title={<span style={{color: 'white'}}>To-Do List</span>}
+						title={<span style={{color: 'white'}}>✔️ JUST DO IT!</span>}
 						showMenuIconButton={false}
-						style={{backgroundColor: 'rgb(0, 151, 167)', position: 'fixed', zIndex: 9999,}}
+						style={{backgroundColor: 'rgb(1, 2, 3)', position: 'fixed', zIndex: 9999,}}
 					/>
 					<div className="App-container">
 						<div style={{position: 'fixed', width: '100%', paddingTop: 64, zIndex: 8888, backgroundColor: 'white'}}>
@@ -274,6 +274,7 @@ class App extends Component {
 							<Tabs
 								onChange={this.handleChange}
 								value={this.state.slideIndex}
+								inkBarStyle={{background: 'tan', height: '3px', marginTop: '-3px'}}
 							>
 								{columns.map((column,index) => (
 									<Tab
@@ -285,6 +286,7 @@ class App extends Component {
 												{column.title} ({(column.title !== 'All') ? column.items.filter(item => item.status === column.title).length: items.length})
 											</div>
 										}
+										style={{backgroundColor: 'rgb(1, 2, 3)'}}
 									/>
 								))}
 							</Tabs>
@@ -328,12 +330,12 @@ class App extends Component {
 					</div>
 					<div className="enable-remove-mode">
 						<If test={!this.state.removeMode}>
-							<FloatingActionButton onClick={this.enableRemoveMode}>
+							<FloatingActionButton onClick={this.enableRemoveMode} backgroundColor='black'>
 								<EditIcon />
 							</FloatingActionButton>
 						</If>
 						<If test={this.state.removeMode}>
-							<FloatingActionButton secondary={true} onClick={this.disableRemoveMode}>
+							<FloatingActionButton secondary={true} onClick={this.disableRemoveMode} backgroundColor='black'>
 								<CloseIcon />
 							</FloatingActionButton>
 						</If>
